@@ -1,0 +1,6 @@
+{
+  "name": "Oppora",
+  "description": "Discover life-transforming opportunities in education, careers, business, and research — verified global scholarships, grants, jobs, and fellowships.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
