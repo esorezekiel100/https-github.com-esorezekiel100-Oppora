@@ -109,21 +109,26 @@ export default function ProfileModal({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-2.5 sm:p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* Backdrop */}
       <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" onClick={onClose} />
 
       {/* Modal Container */}
-      <div className="relative bg-white rounded-2xl sm:rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200">
+      <div className="relative bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col max-h-[90vh] sm:max-h-[92vh] animate-in slide-in-from-bottom-6 sm:zoom-in-95 duration-200">
+        {/* Mobile Pull Handle */}
+        <div className="sm:hidden w-full flex justify-center py-2 bg-slate-900 shrink-0">
+          <div className="w-12 h-1 bg-slate-700 rounded-full"></div>
+        </div>
+
         {/* Header */}
-        <div className="px-4 sm:px-6 py-3.5 bg-slate-900 text-white flex justify-between items-center shrink-0">
+        <div className="px-4 sm:px-6 py-3 sm:py-3.5 bg-slate-900 text-white flex justify-between items-center shrink-0">
           <div className="flex items-center space-x-2">
             <User className="h-5 w-5 text-amber-400" />
             <span className="font-sans text-base sm:text-lg font-bold">Your Citizen Dashboard</span>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-slate-800 rounded-xl transition-all text-slate-300 hover:text-white cursor-pointer"
+            className="p-1.5 hover:bg-slate-800 rounded-xl transition-all text-slate-300 hover:text-white cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
             aria-label="Close profile dashboard"
           >
             <X className="h-5 w-5" />
@@ -131,7 +136,7 @@ export default function ProfileModal({
         </div>
 
         {/* Body */}
-        <div className="overflow-y-auto p-6 md:p-8 space-y-6 flex-grow">
+        <div className="overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 flex-grow pb-16 sm:pb-8">
           {successSaved && (
             <div className="bg-emerald-50 border border-emerald-100 text-emerald-800 p-3 rounded-xl text-xs flex items-center space-x-2 animate-in fade-in duration-200">
               <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0" />

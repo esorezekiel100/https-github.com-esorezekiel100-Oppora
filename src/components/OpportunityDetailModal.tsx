@@ -28,14 +28,19 @@ export default function OpportunityDetailModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-2.5 sm:p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* Backdrop */}
       <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" onClick={onClose} />
 
       {/* Modal Container */}
-      <div className="relative bg-white rounded-2xl sm:rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col max-h-[92vh] animate-in zoom-in-95 duration-200">
+      <div className="relative bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl border border-slate-100 flex flex-col max-h-[90vh] sm:max-h-[92vh] animate-in slide-in-from-bottom-6 sm:zoom-in-95 duration-200">
+        {/* Mobile Pull Handle */}
+        <div className="sm:hidden w-full flex justify-center py-2 bg-slate-900 shrink-0">
+          <div className="w-12 h-1 bg-slate-700 rounded-full"></div>
+        </div>
+
         {/* Header Ribbon */}
-        <div className="px-4 sm:px-6 py-3.5 bg-slate-900 text-white flex justify-between items-center shrink-0">
+        <div className="px-4 sm:px-6 py-3 sm:py-3.5 bg-slate-900 text-white flex justify-between items-center shrink-0">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[10px] sm:text-xs bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
               {opp.type}
@@ -53,7 +58,7 @@ export default function OpportunityDetailModal({
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-800 rounded-xl transition-all text-slate-300 hover:text-white cursor-pointer"
+            className="p-2 hover:bg-slate-800 rounded-xl transition-all text-slate-300 hover:text-white cursor-pointer min-w-[40px] min-h-[40px] flex items-center justify-center"
             aria-label="Close modal"
           >
             <X className="h-5 w-5" />
@@ -146,25 +151,25 @@ export default function OpportunityDetailModal({
         </div>
 
         {/* Footer Actions */}
-        <div className="px-4 sm:px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-3 shrink-0">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-2.5 sm:gap-3 shrink-0 pb-6 sm:pb-4">
           <div className="flex items-center space-x-2 w-full sm:w-auto justify-between sm:justify-start">
             {/* Save toggle */}
             <button
               onClick={() => onSaveToggle(opp.id)}
-              className={`flex-1 sm:flex-none px-4 py-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer ${
+              className={`flex-1 sm:flex-none px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center space-x-1.5 sm:space-x-2 min-h-[44px] cursor-pointer active:scale-95 ${
                 isSaved
                   ? 'bg-rose-50 border-rose-100 text-rose-500 hover:bg-rose-100'
                   : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
               }`}
             >
               <Bookmark className={`h-4 w-4 ${isSaved ? 'fill-rose-500' : ''}`} />
-              <span>{isSaved ? 'Bookmarked' : 'Bookmark Lead'}</span>
+              <span>{isSaved ? 'Bookmarked' : 'Bookmark'}</span>
             </button>
 
             {/* Share action */}
             <button
               onClick={handleShare}
-              className="flex-1 sm:flex-none px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 text-xs font-bold transition-all flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
+              className="flex-1 sm:flex-none px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 text-xs font-bold transition-all flex items-center justify-center space-x-1.5 sm:space-x-2 min-h-[44px] cursor-pointer active:scale-95"
             >
               <Share2 className="h-4 w-4 text-slate-400" />
               <span>{copied ? 'Copied!' : 'Share'}</span>
@@ -174,7 +179,7 @@ export default function OpportunityDetailModal({
           {/* Apply button */}
           <button
             onClick={() => onApplyClick(opp.id, opp.applyUrl)}
-            className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-800 px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer min-h-[44px]"
+            className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-800 px-5 sm:px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold shadow-md transition-all flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] sm:min-h-[44px] active:scale-95"
           >
             <span>Apply on Official Host Portal</span>
             <ArrowUpRight className="h-4 w-4" />

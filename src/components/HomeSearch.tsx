@@ -71,7 +71,7 @@ export default function HomeSearch({
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 animate-in fade-in duration-300">
+    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-4 sm:p-8 shadow-xs space-y-5 sm:space-y-6 animate-in fade-in duration-300">
       {/* Header Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
         <div className="space-y-1">
@@ -79,7 +79,7 @@ export default function HomeSearch({
             <Sparkles className="h-3.5 w-3.5 text-amber-500" />
             <span>GLOBAL REGISTRY SEARCH ENGINE</span>
           </div>
-          <h2 className="font-sans text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="font-sans text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
             Search 100% Verified Opportunities
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 font-medium">
@@ -87,9 +87,9 @@ export default function HomeSearch({
           </p>
         </div>
 
-        <div className="flex items-center space-x-2 text-xs font-bold text-slate-500 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-100 self-start sm:self-auto">
+        <div className="flex items-center space-x-2 text-xs font-bold text-slate-500 bg-slate-50 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-100 self-start sm:self-auto">
           <Globe className="h-4 w-4 text-amber-500 shrink-0" />
-          <span>{matchingCount} Opportunities Found</span>
+          <span>{matchingCount} Leads Found</span>
         </div>
       </div>
 

@@ -33,39 +33,39 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-white rounded-3xl border border-slate-200 px-6 sm:px-8 shadow-xs my-8">
+    <section className="py-8 sm:py-12 md:py-16 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 px-4 sm:px-8 shadow-xs my-6 sm:my-8">
       <div className="max-w-3xl">
-        <span className="text-xs font-bold text-amber-800 uppercase tracking-widest bg-amber-50 border border-amber-100 px-3 py-1 rounded-full">
+        <span className="text-[10px] sm:text-xs font-bold text-amber-800 uppercase tracking-widest bg-amber-50 border border-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
           The Pillars of Trust
         </span>
-        <h2 className="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-4">
+        <h2 className="font-sans text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-3 sm:mt-4">
           Why Ambitious Talent Chooses <span className="text-amber-500">Oppora</span>
         </h2>
-        <p className="text-slate-500 mt-3 text-base sm:text-lg leading-relaxed max-w-2xl">
+        <p className="text-slate-500 mt-2 sm:mt-3 text-xs sm:text-lg leading-relaxed max-w-2xl font-medium">
           Navigating global applications can feel overwhelming and crowded with spam. We curate a refined space so you can focus entirely on your craft.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 mt-6 sm:mt-12">
         {pillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
             <div
               key={pillar.id}
-              className="flex flex-col p-6 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-xs transition-all duration-200 bg-slate-50/50"
+              className="flex flex-col p-5 sm:p-6 rounded-2xl border border-slate-200/80 hover:border-amber-500 hover:shadow-xs transition-all duration-200 bg-slate-50/50"
             >
               <div className="flex justify-between items-start">
-                <div className={`p-3 rounded-xl flex items-center justify-center shrink-0 ${pillar.iconBg}`}>
-                  <Icon className="h-6 w-6" />
+                <div className={`p-2.5 sm:p-3 rounded-xl flex items-center justify-center shrink-0 ${pillar.iconBg}`}>
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </div>
-                <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${pillar.color}`}>
+                <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 sm:py-1 rounded-full border ${pillar.color}`}>
                   {pillar.badge}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-slate-800 mt-6 font-sans">
+              <h3 className="text-base sm:text-lg font-extrabold text-slate-800 mt-4 sm:mt-6 font-sans">
                 {pillar.title}
               </h3>
-              <p className="text-slate-500 text-sm mt-3 leading-relaxed">
+              <p className="text-slate-500 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed font-medium">
                 {pillar.description}
               </p>
             </div>

@@ -468,35 +468,35 @@ Within its first twelve months, KiberaCare responded to over 2,400 query tickets
 
       {/* Online Reading Modal */}
       {readingResource && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="relative bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-150 max-h-[85vh] overflow-y-auto space-y-6">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+          <div className="relative bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full p-5 sm:p-8 shadow-2xl border border-slate-100 animate-in slide-in-from-bottom-6 sm:zoom-in-95 duration-150 max-h-[90vh] sm:max-h-[85vh] overflow-y-auto space-y-5 sm:space-y-6">
             
-            <div className="flex justify-between items-start border-b border-slate-100 pb-4">
+            <div className="flex justify-between items-start border-b border-slate-100 pb-3.5">
               <div className="space-y-1">
                 <span className="text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   Live Reading Room
                 </span>
-                <h3 className="font-sans text-xl font-extrabold text-slate-900 tracking-tight">
+                <h3 className="font-sans text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
                   {readingResource.title}
                 </h3>
               </div>
               <button
                 onClick={() => setReadingResource(null)}
-                className="text-slate-400 hover:text-slate-600 bg-slate-50 hover:bg-slate-100 p-1.5 rounded-full transition-colors cursor-pointer"
+                className="text-slate-400 hover:text-slate-600 bg-slate-50 hover:bg-slate-100 p-2 rounded-full transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
               >
                 ✕
               </button>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200/60 max-h-[45vh] overflow-y-auto">
+            <div className="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/60 max-h-[45vh] overflow-y-auto">
               <p className="text-slate-700 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-medium">
                 {readingResource.content}
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-slate-100 text-xs">
-              <span className="text-slate-400 font-semibold font-mono">
-                Author Verification Status: Verified UC-Candidate
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 pt-2 border-t border-slate-100 text-xs pb-6 sm:pb-0">
+              <span className="text-slate-400 font-semibold font-mono text-[11px] text-center sm:text-left">
+                Verification Status: Verified UC-Candidate
               </span>
 
               <div className="flex items-center space-x-2 w-full sm:w-auto">
@@ -505,16 +505,16 @@ Within its first twelve months, KiberaCare responded to over 2,400 query tickets
                     handleDownload(readingResource.id, readingResource.title);
                     setReadingResource(null);
                   }}
-                  className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-4 py-2 rounded-xl transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
+                  className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white font-extrabold px-4 py-2.5 rounded-xl transition-all flex items-center justify-center space-x-1.5 cursor-pointer min-h-[44px] active:scale-95"
                 >
-                  <Download className="h-3.5 w-3.5" />
-                  <span>Download Text file</span>
+                  <Download className="h-4 w-4" />
+                  <span>Download File</span>
                 </button>
                 <button
                   onClick={() => setReadingResource(null)}
-                  className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold px-4 py-2 rounded-xl transition-all cursor-pointer"
+                  className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer min-h-[44px]"
                 >
-                  Close Reader
+                  Close
                 </button>
               </div>
             </div>
@@ -525,11 +525,11 @@ Within its first twelve months, KiberaCare responded to over 2,400 query tickets
 
       {/* Floating alert for downloaded resource */}
       {downloadedId && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-slate-800 flex items-center space-x-2.5 animate-in slide-in-from-bottom-4 duration-300">
-          <CheckCircle className="h-5 w-5 text-emerald-400" />
+        <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 left-4 sm:left-auto z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-slate-800 flex items-center space-x-2.5 animate-in slide-in-from-bottom-4 duration-300">
+          <CheckCircle className="h-5 w-5 text-emerald-400 shrink-0" />
           <div className="text-xs">
             <p className="font-extrabold">Resource Downloaded Successfully!</p>
-            <p className="text-[10px] text-slate-400">Checked UC-001 authentication and triggered file download.</p>
+            <p className="text-[10px] text-slate-400">Checked UC-001 authentication and saved file.</p>
           </div>
         </div>
       )}

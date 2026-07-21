@@ -117,7 +117,7 @@ export default function Hero({ onSearch, onSelectType, onNavigateToTab, totalOpp
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
       {/* Main Slide Animated Banner */}
-      <div className="relative min-h-[460px] md:min-h-[500px] flex items-center justify-center px-6 py-10 md:p-12 lg:p-16">
+      <div className="relative min-h-[420px] sm:min-h-[460px] md:min-h-[500px] flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10 md:p-12 lg:p-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSlide.id}
@@ -125,36 +125,36 @@ export default function Hero({ onSearch, onSelectType, onNavigateToTab, totalOpp
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.45, ease: 'easeOut' }}
-            className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center z-10"
+            className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center z-10"
           >
             {/* Slide Content Column */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border bg-slate-900/80 backdrop-blur-md shadow-xs">
-                {React.createElement(activeSlide.badgeIcon, { className: 'h-4 w-4 text-amber-500' })}
-                <span className="text-amber-400 font-extrabold">{activeSlide.badge}</span>
+              <div className="inline-flex items-center space-x-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border bg-slate-900/80 backdrop-blur-md shadow-xs max-w-full">
+                {React.createElement(activeSlide.badgeIcon, { className: 'h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-500 shrink-0' })}
+                <span className="text-amber-400 font-extrabold truncate">{activeSlide.badge}</span>
               </div>
 
               {/* Title */}
-              <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
+              <h1 className="font-sans text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.2] sm:leading-[1.15]">
                 {activeSlide.title}
               </h1>
 
               {/* Subtitle */}
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
+              <p className="text-slate-300 text-xs sm:text-base leading-relaxed font-normal max-w-2xl">
                 {activeSlide.subtitle}
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-1 sm:pt-2 w-full sm:w-auto">
                 <button
                   onClick={() => {
                     onSelectType(activeSlide.primaryActionType);
                     onNavigateToTab('opportunities');
                   }}
-                  className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center space-x-2 hover:scale-[1.02] active:scale-95 cursor-pointer min-h-[48px]"
+                  className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all flex items-center justify-center space-x-2 hover:scale-[1.02] active:scale-95 cursor-pointer min-h-[48px]"
                 >
-                  <span>{activeSlide.primaryActionText}</span>
+                  <span className="text-center">{activeSlide.primaryActionText}</span>
                   <ArrowRight className="h-4 w-4 shrink-0" />
                 </button>
 
@@ -163,18 +163,18 @@ export default function Hero({ onSearch, onSelectType, onNavigateToTab, totalOpp
                     onSelectType(activeSlide.secondaryActionType);
                     onNavigateToTab('opportunities');
                   }}
-                  className="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold px-5 py-3.5 rounded-xl text-xs sm:text-sm transition-all hover:text-white cursor-pointer min-h-[48px] text-center"
+                  className="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-bold px-5 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm transition-all hover:text-white cursor-pointer min-h-[48px] text-center flex items-center justify-center active:scale-95"
                 >
                   {activeSlide.secondaryActionText}
                 </button>
               </div>
 
               {/* Slide Highlights row */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t border-slate-800/80">
                 {activeSlide.highlights.map((h, i) => (
                   <div key={i} className="space-y-0.5">
-                    <p className="text-base sm:text-lg font-black text-amber-400 font-sans tracking-tight">{h.value}</p>
-                    <p className="text-[10px] sm:text-xs text-slate-400 font-bold uppercase tracking-wider">{h.label}</p>
+                    <p className="text-sm sm:text-lg font-black text-amber-400 font-sans tracking-tight leading-tight">{h.value}</p>
+                    <p className="text-[9px] sm:text-xs text-slate-400 font-bold uppercase tracking-wider line-clamp-1">{h.label}</p>
                   </div>
                 ))}
               </div>
